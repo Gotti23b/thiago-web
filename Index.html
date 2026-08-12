@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Solicitud Urgente de Aprobación</title>
+
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        margin: 0;
+        min-height: 100vh;
+        font-family: Arial, sans-serif;
+        background: linear-gradient(135deg, #00e5ff, #0066ff);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+    }
+
+    .card {
+        background: white;
+        width: min(90%, 520px);
+        padding: 35px;
+        border-radius: 25px;
+        text-align: center;
+        box-shadow: 0 20px 60px rgba(0,0,0,.3);
+        position: relative;
+        z-index: 2;
+    }
+
+    h1 {
+        margin-top: 0;
+        font-size: 30px;
+    }
+
+    .emoji {
+        font-size: 65px;
+        animation: bounce 1s infinite alternate;
+    }
+
+    @keyframes bounce {
+        to { transform: translateY(-10px); }
+    }
+
+    .bar {
+        width: 100%;
+        height: 20px;
+        background: #ddd;
+        border-radius: 20px;
+        overflow: hidden;
+        margin: 20px 0;
+    }
+
+    .progress {
+        width: 99.9%;
+        height: 100%;
+        background: #00c853;
+        animation: pulse 1s infinite alternate;
+    }
+
+    @keyframes pulse {
+        to { width: 100%; }
+    }
+
+    button {
+        border: none;
+        padding: 14px 22px;
+        border-radius: 999px;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+        margin: 6px;
+        transition: .2s;
+    }
+
+    #aprobar {
+        background: #111;
+        color: white;
+    }
+
+    #aprobar:hover {
+        transform: scale(1.08);
+    }
+
+    #rechazar {
+        background: #eee;
+        color: #555;
+    }
+
+    #mensaje {
+        margin-top: 20px;
+        font-size: 18px;
+        font-weight: bold;
+        min-height: 30px;
+    }
+
+    .firma {
+        margin-top: 25px;
+        font-size: 13px;
+        color: #777;
+    }
+
+    .confetti {
+        position: fixed;
+        top: -20px;
+        font-size: 25px;
+        animation: caer 3s linear forwards;
+        z-index: 10;
+    }
+
+    @keyframes caer {
+        to {
+            transform: translateY(110vh) rotate(720deg);
+        }
+    }
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+    <div class="emoji">🥺</div>
+
+    <h1>Solicitud Oficial de Aprobación</h1>
+
+    <p>
+        Estimado Maestro:
+        <br><br>
+        Por medio de la presente solicito formalmente
+        <strong>ser aprobado</strong>.
+    </p>
+
+    <p>
+        He presentado argumentos científicos,
+        académicos y posiblemente inventados.
+    </p>
+
+    <div class="bar">
+        <div class="progress"></div>
+    </div>
+
+    <p>
+        <strong>Nivel de necesidad de aprobación:</strong><br>
+        99,999999%
+    </p>
+
+    <button id="aprobar" onclick="aprobar()">
+        ✅ APROBARME
+    </button>
+
+    <button id="rechazar" onclick="rechazar()">
+        ❌ Rechazar
+    </button>
+
+    <div id="mensaje"></div>
+
+    <div class="firma">
+        Sistema Automatizado de Súplicas Académicas™
+    </div>
+
+</div>
+
+<script>
+
+function aprobar() {
+
+    document.getElementById("mensaje").innerHTML =
+        "🎉 ¡¡¡APROBADO!!! 🎉<br><br>" +
+        "Gracias, Maestro. Sabía que podía confiar en usted 😎";
+
+    for (let i = 0; i < 80; i++) {
+
+        let confetti = document.createElement("div");
+
+        confetti.className = "confetti";
+
+        let emojis = ["🎉","🎊","⭐","📝","🏆","✅"];
+
+        confetti.innerText =
+            emojis[Math.floor(Math.random() * emojis.length)];
+
+        confetti.style.left =
+            Math.random() * 100 + "vw";
+
+        confetti.style.animationDuration =
+            (Math.random() * 2 + 2) + "s";
+
+        document.body.appendChild(confetti);
+
+        setTimeout(() => confetti.remove(), 4000);
+    }
+}
+
+function rechazar() {
+
+    let boton = document.getElementById("rechazar");
+
+    boton.style.position = "absolute";
+
+    boton.style.left =
+        Math.random() * 70 + "%";
+
+    boton.style.top =
+        Math.random() * 80 + "%";
+
+    document.getElementById("mensaje").innerText =
+        "🤨 Error: esa opción no está disponible.";
+}
+
+</script>
+
+</body>
+</html>
