@@ -4,36 +4,15 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <meta name="theme-color" content="#071018">
-<title>Experimento Web</title>
+<title>Eaglercraft 1.8.8</title>
 <style>
-*{box-sizing:border-box}html,body{margin:0;width:100%;min-height:100%;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:#05090d;color:#e9fbff;overflow-x:hidden}body{min-height:100vh;position:relative}canvas{position:fixed;inset:0;width:100%;height:100%;z-index:0}.noise{position:fixed;inset:0;pointer-events:none;opacity:.035;z-index:1;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}.wrap{position:relative;z-index:2;min-height:100vh;display:grid;place-items:center;padding:28px}.panel{width:min(920px,100%);padding:clamp(28px,6vw,64px);border:1px solid rgba(103,239,255,.22);border-radius:32px;background:linear-gradient(145deg,rgba(10,25,35,.82),rgba(4,10,16,.68));backdrop-filter:blur(18px);box-shadow:0 30px 100px rgba(0,0,0,.5),0 0 70px rgba(0,220,255,.08)}.tag{display:inline-flex;gap:8px;align-items:center;border:1px solid rgba(103,239,255,.25);padding:7px 12px;border-radius:999px;color:#8defff;font-size:13px;letter-spacing:.08em;text-transform:uppercase;background:rgba(40,220,255,.06)}.dot{width:7px;height:7px;border-radius:50%;background:#5ff3ff;box-shadow:0 0 14px #5ff3ff;animation:pulse 1.5s infinite}@keyframes pulse{50%{opacity:.35;transform:scale(.7)}}h1{font-size:clamp(44px,9vw,92px);line-height:.92;margin:24px 0 20px;letter-spacing:-.06em}h1 span{color:#65edff;text-shadow:0 0 30px rgba(70,235,255,.3)}.lead{max-width:680px;color:#a9c8ce;font-size:clamp(16px,2.2vw,20px);line-height:1.65;margin:0 0 30px}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:30px 0}.box{padding:18px;border:1px solid rgba(255,255,255,.08);border-radius:18px;background:rgba(255,255,255,.035)}.num{font-size:28px;font-weight:800;color:#70efff}.label{font-size:12px;color:#71939b;margin-top:4px;text-transform:uppercase;letter-spacing:.08em}.actions{display:flex;flex-wrap:wrap;gap:12px}.btn{appearance:none;border:0;border-radius:14px;padding:13px 18px;font:inherit;font-weight:750;cursor:pointer;text-decoration:none;color:#041014;background:#6df2ff;box-shadow:0 0 25px rgba(80,235,255,.18);transition:.2s}.btn:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(80,235,255,.25)}.btn.alt{color:#c9e8ed;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);box-shadow:none}.terminal{margin-top:26px;border-radius:18px;overflow:hidden;border:1px solid rgba(255,255,255,.08);background:#030608;box-shadow:inset 0 1px rgba(255,255,255,.03)}.bar{display:flex;gap:7px;padding:11px 14px;border-bottom:1px solid rgba(255,255,255,.06);background:#080d11}.bar i{width:9px;height:9px;border-radius:50%;background:#26363b}.code{padding:17px;font:13px/1.7 ui-monospace,SFMono-Regular,Menlo,monospace;color:#86b6be;min-height:95px}.cyan{color:#62efff}.muted{color:#48636a}.footer{margin-top:24px;color:#4e737a;font-size:12px}.toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,20px);opacity:0;z-index:5;padding:12px 16px;border:1px solid rgba(100,240,255,.25);border-radius:999px;background:rgba(5,14,19,.9);backdrop-filter:blur(12px);color:#bcecf2;transition:.3s;pointer-events:none}.toast.show{opacity:1;transform:translate(-50%,0)}@media(max-width:650px){.grid{grid-template-columns:1fr 1fr}.grid .box:last-child{grid-column:1/-1}}@media(max-width:420px){.grid{grid-template-columns:1fr}.grid .box:last-child{grid-column:auto}.panel{border-radius:24px;padding:26px 20px}}
+*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;background:#05090d;color:#e9fbff;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;overflow:hidden}.wrap{width:100%;height:100%;display:flex;flex-direction:column}.top{height:58px;flex:0 0 58px;display:flex;align-items:center;justify-content:space-between;padding:0 16px;background:#071018;border-bottom:1px solid rgba(103,239,255,.22);box-shadow:0 0 25px rgba(0,220,255,.08);z-index:2}.title{font-weight:800;color:#65edff}.back{padding:9px 14px;border-radius:10px;text-decoration:none;color:#c9e8ed;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1)}.game{width:100%;height:calc(100vh - 58px);border:0;display:block;background:#000}
 </style>
 </head>
 <body>
-<canvas id="bg"></canvas><div class="noise"></div>
-<div class="wrap"><main class="panel">
-  <div class="tag"><span class="dot"></span> experimento activo</div>
-  <h1>Esto no era<br>un <span>placeholder.</span></h1>
-  <p class="lead">Abriste una página que se suponía que iba a quedar vacía. Mala suerte. Ahora tiene partículas, secretos y un pequeño experimento escondido. 😎</p>
-  <section class="grid" aria-label="Estado del experimento">
-    <div class="box"><div class="num" id="time">--:--</div><div class="label">hora local</div></div>
-    <div class="box"><div class="num" id="clicks">0</div><div class="label">clics detectados</div></div>
-    <div class="box"><div class="num" id="status">ONLINE</div><div class="label">sistema</div></div>
-  </section>
-  <div class="actions">
-    <button class="btn" id="surprise">✨ Activar sorpresa</button>
-    <a class="btn alt" href="https://gotti23b.github.io/Gotti23b.github.io/">← Volver al menú</a>
-  </div>
-  <div class="terminal"><div class="bar"><i></i><i></i><i></i></div><div class="code"><span class="muted">&gt; </span><span class="cyan">experiment</span> --mode <span class="cyan">chaos</span><br><span class="muted">&gt; </span>loading imagination... <span class="cyan">100%</span><br><span class="muted">&gt; </span>placeholder.exe has been replaced<br><span class="muted">&gt; </span><span id="msg">waiting for human interaction...</span><span class="cyan">_</span></div></div>
-  <div class="footer">Hecho para experimentar · una página que no tenía por qué ser tan innecesariamente complicada.</div>
-</main></div><div class="toast" id="toast">✨ Experimento activado.</div>
-<script>
-const canvas=document.getElementById('bg'),ctx=canvas.getContext('2d');let w,h,dpr,pts=[];
-function resize(){dpr=Math.min(devicePixelRatio||1,2);w=innerWidth;h=innerHeight;canvas.width=w*dpr;canvas.height=h*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);pts=Array.from({length:Math.min(75,Math.floor(w/16))},()=>({x:Math.random()*w,y:Math.random()*h,vx:(Math.random()-.5)*.22,vy:(Math.random()-.5)*.22,r:Math.random()*1.7+.3}))}resize();addEventListener('resize',resize);
-function draw(){ctx.clearRect(0,0,w,h);for(const p of pts){p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>w)p.vx*=-1;if(p.y<0||p.y>h)p.vy*=-1;ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fillStyle='rgba(100,235,255,.55)';ctx.fill()}for(let i=0;i<pts.length;i++)for(let j=i+1;j<pts.length;j++){let a=pts[i],b=pts[j],dx=a.x-b.x,dy=a.y-b.y,dist=Math.hypot(dx,dy);if(dist<115){ctx.strokeStyle=`rgba(80,220,240,${.09*(1-dist/115)})`;ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);ctx.stroke()}}requestAnimationFrame(draw)}draw();
-let clicks=0;const clicksEl=document.getElementById('clicks');document.addEventListener('click',()=>{clicks++;clicksEl.textContent=clicks});
-function clock(){document.getElementById('time').textContent=new Date().toLocaleTimeString('es-AR',{hour:'2-digit',minute:'2-digit'});document.getElementById('status').textContent='ONLINE'}clock();setInterval(clock,1000);
-const msgs=['human interaction detected.','ok... now you are officially part of the experiment.','that button was definitely a good idea.','✨ cyan levels: unnecessarily high.','placeholder status: permanently unavailable.'];let n=0;
-document.getElementById('surprise').onclick=()=>{n=(n+1)%msgs.length;document.getElementById('msg').textContent=msgs[n];const t=document.getElementById('toast');t.textContent='✨ '+msgs[n];t.classList.add('show');setTimeout(()=>t.classList.remove('show'),1800);for(const p of pts){p.vx*=2.8;p.vy*=2.8}setTimeout(()=>{for(const p of pts){p.vx/=2.8;p.vy/=2.8}},700)};
-</script>
-</body></html>
+<div class="wrap">
+<header class="top"><div class="title">⛏️ Eaglercraft 1.8.8</div><a class="back" href="https://gotti23b.github.io/Gotti23b.github.io/">← Menú</a></header>
+<iframe class="game" src="https://eaglercraft.com/es/play?version=1.8.8-wasm" title="Eaglercraft 1.8.8" allowfullscreen></iframe>
+</div>
+</body>
+</html>
